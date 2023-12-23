@@ -4,6 +4,13 @@ const cors = require('cors')
 const RegisterModel = require('./models/Register')
 
 const app = express()
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://yt-frontend-chi.vercel.app');
+    // Other CORS headers can be set here if needed
+    next();
+});
+
 app.use(cors(
     {
         origin: "*",
