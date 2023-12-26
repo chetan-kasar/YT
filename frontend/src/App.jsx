@@ -11,7 +11,7 @@ const YourComponent = () => {
     formData.append('titleImage', event.target.files[0]);
 
       try {
-        let response = await axios.post('http://localhost:9000/imgUpload', formData,{headers: {"Content-Type": "multipart/form-data"}});
+        let response = await axios.post('https://travel-server-sooty.vercel.app/imgUpload', formData,{headers: {"Content-Type": "multipart/form-data"}});
       } catch (error) {
           console.error('Error sending username:', error);
         }*/
@@ -25,7 +25,7 @@ const YourComponent = () => {
     console.log(selectedFile);
 
     try {
-      axios.post('http://localhost:5000/uploadImage', formData)
+      axios.post('https://travel-server-sooty.vercel.app/uploadImage', formData)
     } catch (error) {
         console.error('Error geting data');
       }
@@ -34,7 +34,7 @@ const YourComponent = () => {
 
   const getData = async ()=>{
     try {
-      await axios.get('http://localhost:5000/getImage').then(
+      await axios.get('https://travel-server-sooty.vercel.app/getImage').then(
         response=>{
           setImageSrc(response.data);
       });
